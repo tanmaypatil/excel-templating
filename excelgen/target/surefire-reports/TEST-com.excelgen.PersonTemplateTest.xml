@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.excelgen.PersonTemplateTest" time="0.236" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.excelgen.PersonTemplateTest" time="0.304" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -13,7 +13,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/tanmaypatil/excel-templating/excelgen/target/surefire/surefirebooter-20251205203207936_3.jar /Users/tanmaypatil/excel-templating/excelgen/target/surefire 2025-12-05T20-32-07_903-jvmRun1 surefire-20251205203207936_1tmp surefire_0-20251205203207936_2tmp"/>
+    <property name="sun.java.command" value="/Users/tanmaypatil/excel-templating/excelgen/target/surefire/surefirebooter-20251205204153359_3.jar /Users/tanmaypatil/excel-templating/excelgen/target/surefire 2025-12-05T20-41-53_330-jvmRun1 surefire-20251205204153359_1tmp surefire_0-20251205204153359_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="PersonTemplateTest"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/tanmaypatil/excel-templating/excelgen/target/surefire/surefirebooter-20251205203207936_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/tanmaypatil/excel-templating/excelgen/target/surefire/surefirebooter-20251205204153359_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="25"/>
@@ -61,7 +61,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="testMinorIncludesParentName" classname="com.excelgen.PersonTemplateTest" time="0.184">
+  <testcase name="testMinorIncludesParentName" classname="com.excelgen.PersonTemplateTest" time="0.24">
     <system-out><![CDATA[✓ Minor template processed (check file to verify parent name appears)
 ]]></system-out>
     <system-err><![CDATA[[main] INFO org.jxls.template.SimpleExporter - you may change the SPI on file: META-INF/services/org.jxls.util.ServiceFactory
@@ -70,25 +70,25 @@
 [main] INFO org.jxls.template.SimpleExporter - you may change the SPI on file: META-INF/services/org.jxls.expression.ExpressionEvaluatorFactory
 ]]></system-err>
   </testcase>
-  <testcase name="testAdultExcludesParentName" classname="com.excelgen.PersonTemplateTest" time="0.012">
+  <testcase name="testAdultExcludesParentName" classname="com.excelgen.PersonTemplateTest" time="0.015">
     <system-out><![CDATA[✓ Adult template processed (check file to verify parent name does NOT appear)
 ]]></system-out>
     <system-err><![CDATA[[main] INFO org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
 ]]></system-err>
   </testcase>
-  <testcase name="testProcessTemplateForAdult" classname="com.excelgen.PersonTemplateTest" time="0.011">
-    <system-out><![CDATA[✓ Adult template processed successfully: /var/folders/6k/3wb67t0d3t7blc8snwpvptp40000gn/T/junit5566430996240292294/adult_output.xlsx
+  <testcase name="testProcessTemplateForAdult" classname="com.excelgen.PersonTemplateTest" time="0.013">
+    <system-out><![CDATA[✓ Adult template processed successfully: /var/folders/6k/3wb67t0d3t7blc8snwpvptp40000gn/T/junit15588476670806065265/adult_output.xlsx
 ]]></system-out>
     <system-err><![CDATA[[main] INFO org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
 ]]></system-err>
   </testcase>
-  <testcase name="testProcessTemplateForMinor" classname="com.excelgen.PersonTemplateTest" time="0.011">
-    <system-out><![CDATA[✓ Minor template processed successfully: /var/folders/6k/3wb67t0d3t7blc8snwpvptp40000gn/T/junit3807033327048961487/minor_output.xlsx
+  <testcase name="testProcessTemplateForMinor" classname="com.excelgen.PersonTemplateTest" time="0.014">
+    <system-out><![CDATA[✓ Minor template processed successfully: /var/folders/6k/3wb67t0d3t7blc8snwpvptp40000gn/T/junit14010935410335075099/minor_output.xlsx
 ]]></system-out>
     <system-err><![CDATA[[main] INFO org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
 ]]></system-err>
   </testcase>
-  <testcase name="testBoundaryCase_Age18" classname="com.excelgen.PersonTemplateTest" time="0.009">
+  <testcase name="testBoundaryCase_Age18" classname="com.excelgen.PersonTemplateTest" time="0.011">
     <system-out><![CDATA[✓ Boundary case template processed (check file to verify parent name does NOT appear)
 ]]></system-out>
     <system-err><![CDATA[[main] INFO org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
