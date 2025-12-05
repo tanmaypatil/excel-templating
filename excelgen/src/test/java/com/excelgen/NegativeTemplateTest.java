@@ -62,32 +62,31 @@ class NegativeTemplateTest {
             System.out.println("\nOutput content:");
             printSheetContent(sheet);
 
-            // EXPECTED BEHAVIOR with OLD syntax on JXLS 2.x:
-            // 1. Variables ${person.name} and ${person.age} WILL be evaluated
-            // 2. The <jx:if> and </jx:if> tags will appear as LITERAL TEXT
-            // 3. The parent name WILL always appear (condition is NOT evaluated)
+            // ACTUAL BEHAVIOR with OLD syntax on JXLS 2.x:
+            // 1. Variables ${person.name} are NOT evaluated (appear as literal text)
+            // 2. The <jx:if> and </jx:if> tags appear as LITERAL TEXT
+            // 3. NOTHING gets processed - template is copied as-is!
 
             String allContent = getAllCellValues(sheet);
 
-            // Verify variables were evaluated
-            assertTrue(allContent.contains("John Doe"),
-                    "Variables should still be evaluated");
-            assertTrue(allContent.contains("15"),
-                    "Variables should still be evaluated");
+            // CRITICAL: Variables are NOT evaluated - they appear as literal ${...}
+            assertTrue(allContent.contains("${person.name}"),
+                    "❌ Variables should NOT be evaluated - appear as literal text");
+            assertTrue(allContent.contains("${person.age}"),
+                    "❌ Variables should NOT be evaluated - appear as literal text");
 
-            // CRITICAL: The OLD syntax tags will appear as literal text!
+            // The OLD syntax tags will appear as literal text!
             assertTrue(allContent.contains("<jx:if") || allContent.contains("jx:if"),
-                    "⚠️ OLD syntax should appear as literal text in output");
+                    "❌ OLD syntax appears as literal text in output");
 
-            // The parent name WILL appear even though age < 18
-            // because the condition is NOT evaluated (it's just text)
-            assertTrue(allContent.contains("Jane Doe"),
-                    "Parent name appears because condition is NOT evaluated");
+            // The parent variable appears as literal ${...} (not evaluated)
+            assertTrue(allContent.contains("${person.parentName}"),
+                    "❌ Parent variable appears as literal text (not evaluated)");
 
-            System.out.println("\n✓ CONFIRMED: Old syntax is treated as literal text");
-            System.out.println("  - Variables ARE evaluated: " + allContent.contains("John Doe"));
+            System.out.println("\n✓ CONFIRMED: OLD syntax causes COMPLETE processing failure");
+            System.out.println("  - Variables NOT evaluated: " + allContent.contains("${person.name}"));
             System.out.println("  - jx:if tags appear as text: " + allContent.contains("jx:if"));
-            System.out.println("  - Conditional logic does NOT work");
+            System.out.println("  - Template copied as-is (no processing at all)");
         }
     }
 
@@ -113,24 +112,24 @@ class NegativeTemplateTest {
 
             String allContent = getAllCellValues(sheet);
 
-            // Verify variables were evaluated
-            assertTrue(allContent.contains("Alice Smith"),
-                    "Variables should still be evaluated");
-            assertTrue(allContent.contains("25"),
-                    "Variables should still be evaluated");
+            // Variables are NOT evaluated - appear as literal text
+            assertTrue(allContent.contains("${person.name}"),
+                    "❌ Variables NOT evaluated");
+            assertTrue(allContent.contains("${person.age}"),
+                    "❌ Variables NOT evaluated");
 
             // The OLD syntax tags appear as literal text
             assertTrue(allContent.contains("<jx:if") || allContent.contains("jx:if"),
-                    "⚠️ OLD syntax should appear as literal text in output");
+                    "❌ OLD syntax appears as literal text in output");
 
-            // The parent name WILL appear even for adults
-            // because the condition is NOT evaluated (it's just text)
-            assertTrue(allContent.contains("Bob Smith"),
-                    "Parent name appears for ADULT because condition is NOT evaluated");
+            // The parent variable appears as literal text (not evaluated)
+            assertTrue(allContent.contains("${person.parentName}"),
+                    "❌ Parent variable appears as literal text");
 
-            System.out.println("\n✓ CONFIRMED: Conditional logic does NOT work with old syntax");
-            System.out.println("  - Adult shows parent name (WRONG - should be hidden)");
-            System.out.println("  - This proves old syntax doesn't work with JXLS 2.x");
+            System.out.println("\n✓ CONFIRMED: Template not processed at all with old syntax");
+            System.out.println("  - No variable evaluation occurs");
+            System.out.println("  - Template copied as-is to output");
+            System.out.println("  - This proves old syntax is completely incompatible");
         }
     }
 
@@ -179,14 +178,15 @@ class NegativeTemplateTest {
         System.out.println("Behavior with JXLS 2.x:");
         System.out.println("  ❌ <jx:if> tag is treated as LITERAL TEXT");
         System.out.println("  ❌ </jx:if> tag is treated as LITERAL TEXT");
+        System.out.println("  ❌ Variables ${...} are NOT evaluated (appear as literal text)");
         System.out.println("  ❌ Conditional logic does NOT work");
-        System.out.println("  ✅ Variables ${...} ARE still evaluated");
-        System.out.println("  ✅ Content ALWAYS appears (no conditional rendering)");
+        System.out.println("  ❌ Template is copied AS-IS (no processing at all!)");
         System.out.println();
         System.out.println("Result:");
         System.out.println("  - The XML tags appear in your output Excel file");
-        System.out.println("  - The parent name always shows (even for adults)");
-        System.out.println("  - You need to migrate to JXLS 2.x syntax");
+        System.out.println("  - Variables like ${person.name} appear as literal text");
+        System.out.println("  - Template processing completely fails");
+        System.out.println("  - You MUST migrate to JXLS 2.x syntax");
         System.out.println();
         System.out.println("JXLS 2.x Syntax (NEW):");
         System.out.println("  jx:if(condition=\"person.age < 18\", lastCell=\"B6\")");
