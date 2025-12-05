@@ -3,6 +3,23 @@
 ## Overview
 JXLS 2.x completely changed the command syntax from XML-style tags to function-style commands.
 
+## Official JXLS Documentation
+
+### JXLS 2.x Official References:
+- **Main Documentation**: https://jxls.sourceforge.net/
+- **Getting Started Guide**: https://jxls.sourceforge.net/getting-started.html
+- **If Command Reference**: https://jxls.sourceforge.net/reference/if_command.html
+- **Each Command Reference**: https://jxls.sourceforge.net/reference/each_command.html
+- **All Commands Overview**: https://jxls.sourceforge.net/reference/overview.html
+- **Expression Language**: https://jxls.sourceforge.net/reference/expression_language.html
+- **GitHub Repository**: https://github.com/jxlsteam/jxls
+
+### Important Notes:
+- This guide covers migration from **JXLS 1.x** (net.sf.jxls) to **JXLS 2.x** (org.jxls)
+- Current project uses: **JXLS 2.10.0** with **Apache POI 4.1.2**
+- Latest JXLS version: **3.0.0** (requires separate migration if upgrading)
+- JXLS 2.x requires **Java 8+** (this project uses Java 17)
+
 ## Syntax Comparison
 
 ### JXLS 1.x (Old - XML Style)
@@ -181,3 +198,145 @@ See the `PersonTemplateTest.java` for a complete working example with:
 - Static template in resources
 - Conditional parent name display
 - JUnit tests demonstrating the functionality
+
+## Additional JXLS 2.x Commands
+
+### Each Command (Loops)
+**Documentation**: https://jxls.sourceforge.net/reference/each_command.html
+
+```
+jx:each(items="employees", var="employee", lastCell="E4")
+```
+
+### Grid Command (Tables)
+**Documentation**: https://jxls.sourceforge.net/reference/grid_command.html
+
+```
+jx:grid(headers="headers", data="data", areas=["A1:C1","A2:C2"], formatCells="A2:C2")
+```
+
+### Image Command
+**Documentation**: https://jxls.sourceforge.net/reference/image_command.html
+
+```
+jx:image(lastCell="B2", src="image")
+```
+
+## Troubleshooting
+
+### Common Issues and Solutions
+
+#### 1. Template Not Processing (Variables Appear as ${...})
+**Problem**: Variables like `${person.name}` appear as literal text in output.
+
+**Cause**: No valid JXLS 2.x commands in template, or invalid old JXLS 1.x syntax present.
+
+**Solution**:
+- Ensure at least one valid JXLS 2.x command exists
+- Remove all old `<jx:if>` XML-style tags
+- Use `jx:if(condition="...", lastCell="...")` instead
+
+**Reference**: See `NegativeTemplateTest.java` in this project
+
+#### 2. Condition Not Working
+**Problem**: Content always/never appears regardless of condition.
+
+**Cause**:
+- Incorrect condition syntax
+- Wrong cell references in areas/lastCell
+- Expression evaluation errors
+
+**Solution**:
+- Verify condition syntax: `condition="variable < 18"` (not `test="..."`)
+- Check cell references match your content
+- Test condition in isolation
+- Enable debug logging (SLF4J)
+
+**Reference**: https://jxls.sourceforge.net/reference/if_command.html
+
+#### 3. ClassNotFoundException or NoSuchMethodError
+**Problem**: Runtime errors when running JXLS code.
+
+**Cause**: Mixing JXLS 1.x and 2.x dependencies.
+
+**Solution**:
+- Remove all `net.sf.jxls` dependencies
+- Use only `org.jxls` dependencies
+- Check transitive dependencies with `mvn dependency:tree`
+
+#### 4. Old Syntax Still in Template
+**Problem**: Forgot to update some templates.
+
+**Solution**:
+- Search project for `<jx:if` to find old syntax
+- Use negative tests to verify (see `NegativeTemplateTest.java`)
+- Run all tests after migration
+
+## Learning Resources
+
+### Official Documentation
+1. **Quick Start**: https://jxls.sourceforge.net/getting-started.html
+2. **Command Reference**: https://jxls.sourceforge.net/reference/overview.html
+3. **Expression Language**: https://jxls.sourceforge.net/reference/expression_language.html
+
+### Example Projects
+- This project's tests: `src/test/java/com/excelgen/PersonTemplateTest.java`
+- JXLS GitHub Examples: https://github.com/jxlsteam/jxls/tree/master/jxls-examples
+
+### Community Support
+- **GitHub Discussions**: https://github.com/jxlsteam/jxls/discussions
+- **GitHub Issues**: https://github.com/jxlsteam/jxls/issues
+
+## Version Information
+
+### This Project:
+- **JXLS**: 2.10.0
+- **Apache POI**: 4.1.2
+- **Java**: 17
+- **JEXL**: 2.1.1
+
+### Latest Versions:
+- **JXLS**: 3.0.0 (requires migration from 2.x)
+- **Apache POI**: 5.2.x (compatible with Java 8+)
+
+### Upgrade Path:
+1. ✅ JXLS 1.x → 2.x (this guide)
+2. ⏭️ JXLS 2.x → 3.x (see: https://jxls.sourceforge.net/reference/migration_to_v3.html)
+
+## Quick Reference Card
+
+### JXLS 1.x vs 2.x Command Syntax
+
+| Feature | JXLS 1.x | JXLS 2.x |
+|---------|----------|----------|
+| **If condition** | `<jx:if test="...">` | `jx:if(condition="...")` |
+| **If closing** | `</jx:if>` | Not needed (use areas) |
+| **Each loop** | `<jx:forEach items="..." var="...">` | `jx:each(items="..." var="...")` |
+| **Each closing** | `</jx:forEach>` | Not needed (use areas) |
+| **Variables** | `${variable}` | `${variable}` (same) |
+| **Context** | `Map<String, Object>` | `Context` object |
+| **API** | `XLSTransformer` | `JxlsHelper` |
+| **Package** | `net.sf.jxls` | `org.jxls` |
+
+### Parameter Names
+
+| JXLS 1.x | JXLS 2.x | Notes |
+|----------|----------|-------|
+| `test=` | `condition=` | Boolean expression |
+| `items=` | `items=` | Same |
+| `var=` | `var=` | Same |
+| N/A | `lastCell=` | Defines area end |
+| N/A | `areas=` | Explicit area definition |
+
+## See Also
+
+- **README.md**: Project overview and setup
+- **PersonTemplateTest.java**: Working examples
+- **NegativeTemplateTest.java**: What NOT to do (old syntax examples)
+- **VariableEvaluationTest.java**: Understanding when variables are evaluated
+
+---
+
+**Last Updated**: December 2025
+**JXLS Version Covered**: 2.x (specifically 2.10.0)
+**Official Documentation**: https://jxls.sourceforge.net/
