@@ -51,7 +51,7 @@ class PersonTemplateTest {
         Address address = new Address("Home", "123 Main St, Hometown");
         minor.setAddress(address);
         
-        String outputPath = "C:\\Users\\u725561\\excel-templating\\excelgen\\minor_with_address_output.xlsx";
+        String outputPath = "/Users/tanmaypatil/excel-templating/minor_with_address_output.xlsx";
 
         // When: Process the static template
         processTemplate(TEMPLATE_WITHADDR_PATH, outputPath, minor);
