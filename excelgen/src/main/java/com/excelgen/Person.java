@@ -4,14 +4,26 @@ public class Person {
     private String name;
     private int age;
     private String parentName;
+    private Address address;
+    private boolean addressExists;
 
     public Person() {
+        this.addressExists = false;
     }
 
     public Person(String name, int age, String parentName) {
         this.name = name;
         this.age = age;
         this.parentName = parentName;
+        this.addressExists = false;
+    }
+
+    public Person(String name, int age, String parentName, Address address) {
+        this.name = name;
+        this.age = age;
+        this.parentName = parentName;
+        this.address = address;
+        this.addressExists = address != null;
     }
 
     public String getName() {
@@ -36,5 +48,22 @@ public class Person {
 
     public void setParentName(String parentName) {
         this.parentName = parentName;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+        this.addressExists = address != null;
+    }
+
+    public boolean isAddressExists() {
+        return addressExists;
+    }
+
+    public void setAddressExists(boolean addressExists) {
+        this.addressExists = addressExists;
     }
 }
