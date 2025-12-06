@@ -20,6 +20,39 @@ JXLS 2.x completely changed the command syntax from XML-style tags to function-s
 - Latest JXLS version: **3.0.0** (requires separate migration if upgrading)
 - JXLS 2.x requires **Java 8+** (this project uses Java 17)
 
+---
+
+## ⚠️ CRITICAL REQUIREMENT FOR JXLS 2.x
+
+### Commands MUST Be in Excel Cell Comments!
+
+The **#1 most common mistake** when migrating to JXLS 2.x:
+
+❌ **WRONG**: Putting commands as cell values
+```
+Cell A1 value: "jx:area(lastCell="B10")"
+Cell A5 value: "jx:if(condition="person.age < 18", lastCell="B5")"
+```
+Result: Template won't process, expressions show as `${person.name}` literally
+
+✅ **CORRECT**: Putting commands in cell comments
+```
+Cell A1 value: "Person Report"
+Cell A1 comment: jx:area(lastCell="B10")
+
+Cell A5 value: "Parent:"
+Cell A5 comment: jx:if(condition="person.age < 18", lastCell="B5")
+```
+Result: Template processes correctly, expressions replaced with actual data
+
+**How to add comments:**
+- **In Excel**: Right-click cell → Insert Comment → Type command
+- **In Java/POI**: Use `Drawing.createCellComment()` (see examples below)
+
+**Why?** JXLS 2.x uses `XlsCommentAreaBuilder` which only reads commands from Excel cell comments, not from cell values.
+
+---
+
 ## Syntax Comparison
 
 ### JXLS 1.x (Old - XML Style)
@@ -30,9 +63,14 @@ JXLS 2.x completely changed the command syntax from XML-style tags to function-s
 ```
 
 ### JXLS 2.x (New - Command Style)
+
+**CRITICAL**: Commands must be in Excel cell **COMMENTS**, not cell values!
+
 ```
 jx:if(condition="person.age < 18", areas=["A6:B6"])
 ```
+
+This command should be placed in an Excel cell comment (right-click → Insert Comment), NOT as a cell value.
 
 ## Migration Steps
 
@@ -63,6 +101,34 @@ jx:if(condition="person.age < 18", areas=["A6:B6"])
 
 ### Step 2: Update Template Syntax
 
+#### Important: Commands Go in Cell Comments!
+
+In JXLS 2.x, commands like `jx:area` and `jx:if` **MUST** be placed in Excel cell comments, not in cell values.
+
+**How to add commands in Excel:**
+1. Right-click on the cell
+2. Select "Insert Comment" or "New Note"
+3. Type the JXLS command (e.g., `jx:area(lastCell="B10")`)
+4. Close the comment
+
+**How to add commands programmatically (Java/POI):**
+```java
+Drawing<?> drawing = sheet.createDrawingPatriarch();
+CreationHelper factory = workbook.getCreationHelper();
+
+Cell cell = row.createCell(0);
+cell.setCellValue("Parent:");
+
+ClientAnchor anchor = factory.createClientAnchor();
+anchor.setCol1(0);
+anchor.setCol2(2);
+anchor.setRow1(5);
+anchor.setRow2(6);
+Comment comment = drawing.createCellComment(anchor);
+comment.setString(factory.createRichTextString("jx:if(condition=\"person.age < 18\", lastCell=\"B5\")"));
+cell.setCellComment(comment);
+```
+
 #### Old Template (JXLS 1.x):
 ```
 Row 1: Name: ${person.name}
@@ -73,12 +139,28 @@ Row 5: </jx:if>
 ```
 
 #### New Template (JXLS 2.x):
+
+**Excel Structure:**
 ```
-Row 1: Name: ${person.name}
-Row 2: Age: ${person.age}
-Row 3: jx:if(condition="person.age < 18", lastCell="B4", areas=["A4:B4"])
-Row 4: Parent: ${person.parentName}
+Row 1 (A1): "Person Report"
+  └─ Cell Comment: jx:area(lastCell="B4")
+
+Row 2: Name: | ${person.name}
+Row 3: Age:  | ${person.age}
+
+Row 4: Parent: | ${person.parentName}
+  └─ Cell Comment on A4: jx:if(condition="person.age < 18", lastCell="B4")
 ```
+
+**What you see in Excel cells:**
+- Cell A1: "Person Report" (with comment indicator)
+- Cell A2: "Name:", Cell B2: "${person.name}"
+- Cell A3: "Age:", Cell B3: "${person.age}"
+- Cell A4: "Parent:", Cell B4: "${person.parentName}" (with comment indicator)
+
+**What's in the cell comments:**
+- A1 comment: `jx:area(lastCell="B4")`
+- A4 comment: `jx:if(condition="person.age < 18", lastCell="B4")`
 
 ### Step 3: Update Java Code
 
@@ -187,10 +269,15 @@ Row 3:   Status: Adult
 
 ## Best Practices for JXLS 2.x
 
-1. **Use Cell Comments for Commands** (keeps template clean)
-2. **Always specify areas explicitly** (more predictable)
-3. **Use descriptive condition expressions** (easier to debug)
-4. **Test with edge cases** (null values, boundary conditions)
+1. **ALWAYS Use Cell Comments for Commands** ⚠️ CRITICAL
+   - Commands (`jx:area`, `jx:if`, `jx:each`) go in Excel cell comments
+   - Cell values contain only display text and `${...}` expressions
+   - This is NOT optional - JXLS 2.x requires this!
+2. **Always add jx:area command** in cell A1's comment (required for processing)
+3. **Always specify areas/lastCell explicitly** (more predictable)
+4. **Use descriptive condition expressions** (easier to debug)
+5. **Test with edge cases** (null values, boundary conditions)
+6. **Open template in Excel** to verify comments are present (look for red triangles)
 
 ## Complete Working Example
 
@@ -226,17 +313,34 @@ jx:image(lastCell="B2", src="image")
 
 ### Common Issues and Solutions
 
-#### 1. Template Not Processing (Variables Appear as ${...})
+#### 1. Template Not Processing (Variables Appear as ${...}) - MOST COMMON!
 **Problem**: Variables like `${person.name}` appear as literal text in output.
 
-**Cause**: No valid JXLS 2.x commands in template, or invalid old JXLS 1.x syntax present.
+**Cause**: Commands are in cell VALUES instead of cell COMMENTS, or missing `jx:area` command.
 
 **Solution**:
-- Ensure at least one valid JXLS 2.x command exists
-- Remove all old `<jx:if>` XML-style tags
-- Use `jx:if(condition="...", lastCell="...")` instead
+1. **Put commands in cell COMMENTS, not cell values!**
+   - Right-click cell → Insert Comment
+   - Type command in the comment (e.g., `jx:area(lastCell="B10")`)
+2. **Add `jx:area` command** in cell A1's comment (required!)
+3. **Cell values** should only contain:
+   - Display text (e.g., "Name:", "Age:")
+   - Expressions (e.g., `${person.name}`, `${person.age}`)
+4. Remove all old `<jx:if>` XML-style tags
+5. Regenerate template if you modified it manually
 
-**Reference**: See `NegativeTemplateTest.java` in this project
+**Example - WRONG (command as cell value):**
+```
+Cell A5 value: "jx:if(condition="person.age < 18", lastCell="B5")"  ❌
+```
+
+**Example - CORRECT (command in cell comment):**
+```
+Cell A5 value: "Parent:"  ✅
+Cell A5 comment: jx:if(condition="person.age < 18", lastCell="B5")  ✅
+```
+
+**Reference**: See `AddressTemplateGenerator.java` lines 40-48 for correct implementation
 
 #### 2. Condition Not Working
 **Problem**: Content always/never appears regardless of condition.
