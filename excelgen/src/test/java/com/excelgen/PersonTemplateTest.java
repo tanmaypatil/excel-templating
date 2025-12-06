@@ -64,6 +64,24 @@ class PersonTemplateTest {
         System.out.println("✓ Minor template with address processed successfully: " + outputPath);
     }
 
+    @Test
+    void testProcessTemplateWithOutAddress() throws IOException {
+        // Given: A person under 18 and address
+        Person minor = new Person("Vishwas Das", 15, "Hari Das");
+        
+        String outputPath = "C:\\Users\\u725561\\excel-templating\\minor_without_address_output.xlsx";
+
+        // When: Process the static template
+        processTemplate(TEMPLATE_WITHADDR_PATH, outputPath, minor);
+
+        // Then: Output file should be generated
+        File outputFile = new File(outputPath);
+        assertTrue(outputFile.exists(), "Output Excel file should be created");
+        assertTrue(outputFile.length() > 0, "Output file should not be empty");
+
+        System.out.println("✓ Minor template with out address processed successfully: " + outputPath);
+    }
+
 
     @Test
     void testProcessTemplateForAdult() throws IOException {
