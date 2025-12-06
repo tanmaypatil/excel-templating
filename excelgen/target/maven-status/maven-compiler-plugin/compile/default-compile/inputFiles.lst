@@ -4,5 +4,7 @@
 /Users/tanmaypatil/excel-templating/excelgen/src/main/java/com/excelgen/ImprovedTemplateGenerator.java
 /Users/tanmaypatil/excel-templating/excelgen/src/main/java/com/excelgen/OldStyleTemplateGenerator.java
 /Users/tanmaypatil/excel-templating/excelgen/src/main/java/com/excelgen/Person.java
+/Users/tanmaypatil/excel-templating/excelgen/src/main/java/com/excelgen/PersonWithPhoneTemplateGenerator.java
+/Users/tanmaypatil/excel-templating/excelgen/src/main/java/com/excelgen/Phone.java
 /Users/tanmaypatil/excel-templating/excelgen/src/main/java/com/excelgen/TemplateCreator.java
 /Users/tanmaypatil/excel-templating/excelgen/src/main/java/com/excelgen/TemplateGenerator.java

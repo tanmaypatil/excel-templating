@@ -1,6 +1,9 @@
 /Users/tanmaypatil/excel-templating/excelgen/src/test/java/com/excelgen/AppTest.java
+/Users/tanmaypatil/excel-templating/excelgen/src/test/java/com/excelgen/ExcelDumper.java
 /Users/tanmaypatil/excel-templating/excelgen/src/test/java/com/excelgen/JxlsTemplateTest.java
 /Users/tanmaypatil/excel-templating/excelgen/src/test/java/com/excelgen/NegativeTemplateTest.java
 /Users/tanmaypatil/excel-templating/excelgen/src/test/java/com/excelgen/PersonTemplateTest.java
+/Users/tanmaypatil/excel-templating/excelgen/src/test/java/com/excelgen/PersonWithPhoneTemplateTest.java
+/Users/tanmaypatil/excel-templating/excelgen/src/test/java/com/excelgen/PhoneTest.java
 /Users/tanmaypatil/excel-templating/excelgen/src/test/java/com/excelgen/VariableEvaluationTest.java
 /Users/tanmaypatil/excel-templating/excelgen/src/test/java/com/excelgen/VerifyOutputTest.java
