@@ -8,7 +8,7 @@ Although dependency upgration was easy to solve . Main issue was to migrate temp
 
   ## jxls template migration from 1.x to 2.x
 This is the key part .
-Please refer to [Guide] (https://github.com/tanmaypatil/excel-templating/blob/main/excelgen/JXLS_MIGRATION_GUIDE.md)
+Please refer to [Guide](https://github.com/tanmaypatil/excel-templating/blob/main/excelgen/JXLS_MIGRATION_GUIDE.md)
   
 
 
