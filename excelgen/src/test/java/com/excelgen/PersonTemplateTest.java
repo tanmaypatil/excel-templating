@@ -21,6 +21,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class PersonTemplateTest {
 
     private static final String TEMPLATE_PATH = "/person_template.xlsx";
+    private static final String TEMPLATE_WITHADDR_PATH = "/person_template_address.xlsx";
+    
 
     @TempDir
     Path tempDir;
@@ -41,6 +43,27 @@ class PersonTemplateTest {
 
         System.out.println("✓ Minor template processed successfully: " + outputPath);
     }
+
+    @Test
+    void testProcessTemplateWithAddress() throws IOException {
+        // Given: A person under 18 and address
+        Person minor = new Person("John Doe", 15, "Jane Doe");
+        Address address = new Address("Home", "123 Main St, Hometown");
+        minor.setAddress(address);
+        
+        String outputPath = "C:\\Users\\u725561\\excel-templating\\excelgen\\minor_with_address_output.xlsx";
+
+        // When: Process the static template
+        processTemplate(TEMPLATE_WITHADDR_PATH, outputPath, minor);
+
+        // Then: Output file should be generated
+        File outputFile = new File(outputPath);
+        assertTrue(outputFile.exists(), "Output Excel file should be created");
+        assertTrue(outputFile.length() > 0, "Output file should not be empty");
+
+        System.out.println("✓ Minor template with address processed successfully: " + outputPath);
+    }
+
 
     @Test
     void testProcessTemplateForAdult() throws IOException {
