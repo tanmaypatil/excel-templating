@@ -1,67 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.excelgen.VariableEvaluationTest" time="0.259" tests="4" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.excelgen.VariableEvaluationTest" time="0.218" tests="4" errors="0" skipped="0" failures="1">
   <properties>
-    <property name="java.specification.version" value="25"/>
-    <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/tanmaypatil/excel-templating/excelgen/target/test-classes:/Users/tanmaypatil/excel-templating/excelgen/target/classes:/Users/tanmaypatil/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.3/junit-jupiter-api-5.9.3.jar:/Users/tanmaypatil/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/tanmaypatil/.m2/repository/org/junit/platform/junit-platform-commons/1.9.3/junit-platform-commons-1.9.3.jar:/Users/tanmaypatil/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/tanmaypatil/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.3/junit-jupiter-engine-5.9.3.jar:/Users/tanmaypatil/.m2/repository/org/junit/platform/junit-platform-engine/1.9.3/junit-platform-engine-1.9.3.jar:/Users/tanmaypatil/.m2/repository/org/apache/poi/poi/4.1.2/poi-4.1.2.jar:/Users/tanmaypatil/.m2/repository/commons-codec/commons-codec/1.13/commons-codec-1.13.jar:/Users/tanmaypatil/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/Users/tanmaypatil/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar:/Users/tanmaypatil/.m2/repository/com/zaxxer/SparseBitSet/1.2/SparseBitSet-1.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/poi/poi-excelant/4.1.2/poi-excelant-4.1.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/ant/ant/1.8.2/ant-1.8.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/poi/poi-ooxml/4.1.2/poi-ooxml-4.1.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar:/Users/tanmaypatil/.m2/repository/com/github/virtuald/curvesapi/1.06/curvesapi-1.06.jar:/Users/tanmaypatil/.m2/repository/org/apache/poi/poi-ooxml-schemas/4.1.2/poi-ooxml-schemas-4.1.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/xmlbeans/xmlbeans/3.1.0/xmlbeans-3.1.0.jar:/Users/tanmaypatil/.m2/repository/org/apache/poi/poi-scratchpad/4.1.2/poi-scratchpad-4.1.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/commons/commons-jexl/2.1.1/commons-jexl-2.1.1.jar:/Users/tanmaypatil/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/Users/tanmaypatil/.m2/repository/org/jxls/jxls/2.10.0/jxls-2.10.0.jar:/Users/tanmaypatil/.m2/repository/org/apache/commons/commons-jexl3/3.1/commons-jexl3-3.1.jar:/Users/tanmaypatil/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/Users/tanmaypatil/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/Users/tanmaypatil/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/Users/tanmaypatil/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar:/Users/tanmaypatil/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/Users/tanmaypatil/.m2/repository/org/jxls/jxls-poi/2.10.0/jxls-poi-2.10.0.jar:/Users/tanmaypatil/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:"/>
-    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="c:\Users\u725561\excel-templating\excelgen\target\test-classes;c:\Users\u725561\excel-templating\excelgen\target\classes;C:\Users\u725561\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.3\junit-jupiter-api-5.9.3.jar;C:\Users\u725561\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\u725561\.m2\repository\org\junit\platform\junit-platform-commons\1.9.3\junit-platform-commons-1.9.3.jar;C:\Users\u725561\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\u725561\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.3\junit-jupiter-engine-5.9.3.jar;C:\Users\u725561\.m2\repository\org\junit\platform\junit-platform-engine\1.9.3\junit-platform-engine-1.9.3.jar;C:\Users\u725561\.m2\repository\org\apache\poi\poi\4.1.2\poi-4.1.2.jar;C:\Users\u725561\.m2\repository\commons-codec\commons-codec\1.13\commons-codec-1.13.jar;C:\Users\u725561\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\u725561\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\u725561\.m2\repository\com\zaxxer\SparseBitSet\1.2\SparseBitSet-1.2.jar;C:\Users\u725561\.m2\repository\org\apache\poi\poi-excelant\4.1.2\poi-excelant-4.1.2.jar;C:\Users\u725561\.m2\repository\org\apache\ant\ant\1.8.2\ant-1.8.2.jar;C:\Users\u725561\.m2\repository\org\apache\ant\ant-launcher\1.8.2\ant-launcher-1.8.2.jar;C:\Users\u725561\.m2\repository\org\apache\poi\poi-ooxml\4.1.2\poi-ooxml-4.1.2.jar;C:\Users\u725561\.m2\repository\org\apache\commons\commons-compress\1.19\commons-compress-1.19.jar;C:\Users\u725561\.m2\repository\com\github\virtuald\curvesapi\1.06\curvesapi-1.06.jar;C:\Users\u725561\.m2\repository\org\apache\poi\poi-ooxml-schemas\4.1.2\poi-ooxml-schemas-4.1.2.jar;C:\Users\u725561\.m2\repository\org\apache\xmlbeans\xmlbeans\3.1.0\xmlbeans-3.1.0.jar;C:\Users\u725561\.m2\repository\org\apache\poi\poi-scratchpad\4.1.2\poi-scratchpad-4.1.2.jar;C:\Users\u725561\.m2\repository\org\apache\commons\commons-jexl\2.1.1\commons-jexl-2.1.1.jar;C:\Users\u725561\.m2\repository\commons-logging\commons-logging\1.1.1\commons-logging-1.1.1.jar;C:\Users\u725561\.m2\repository\org\jxls\jxls\2.10.0\jxls-2.10.0.jar;C:\Users\u725561\.m2\repository\org\apache\commons\commons-jexl3\3.1\commons-jexl3-3.1.jar;C:\Users\u725561\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar;C:\Users\u725561\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\u725561\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\u725561\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\u725561\.m2\repository\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;C:\Users\u725561\.m2\repository\org\jxls\jxls-poi\2.10.0\jxls-poi-2.10.0.jar;C:\Users\u725561\.m2\repository\org\slf4j\slf4j-simple\1.7.36\slf4j-simple-1.7.36.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
-    <property name="user.timezone" value="Asia/Kolkata"/>
-    <property name="os.name" value="Mac OS X"/>
-    <property name="java.vm.specification.version" value="25"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="user.country" value="IN"/>
-    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/tanmaypatil/excel-templating/excelgen/target/surefire/surefirebooter-20251205215448256_3.jar /Users/tanmaypatil/excel-templating/excelgen/target/surefire 2025-12-05T21-54-48_229-jvmRun1 surefire-20251205215448256_1tmp surefire_0-20251205215448256_2tmp"/>
-    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Users\u725561\openjdk-17.0.2_windows-x64_bin\jdk-17.0.2\bin"/>
+    <property name="sun.java.command" value="C:\Users\u725561\AppData\Local\Temp\surefire16891520223125372589\surefirebooter-20251206151122468_3.jar C:\Users\u725561\AppData\Local\Temp\surefire16891520223125372589 2025-12-06T15-11-21_300-jvmRun1 surefire-20251206151122468_1tmp surefire_0-20251206151122468_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="VariableEvaluationTest"/>
-    <property name="surefire.test.class.path" value="/Users/tanmaypatil/excel-templating/excelgen/target/test-classes:/Users/tanmaypatil/excel-templating/excelgen/target/classes:/Users/tanmaypatil/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.3/junit-jupiter-api-5.9.3.jar:/Users/tanmaypatil/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/tanmaypatil/.m2/repository/org/junit/platform/junit-platform-commons/1.9.3/junit-platform-commons-1.9.3.jar:/Users/tanmaypatil/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/tanmaypatil/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.3/junit-jupiter-engine-5.9.3.jar:/Users/tanmaypatil/.m2/repository/org/junit/platform/junit-platform-engine/1.9.3/junit-platform-engine-1.9.3.jar:/Users/tanmaypatil/.m2/repository/org/apache/poi/poi/4.1.2/poi-4.1.2.jar:/Users/tanmaypatil/.m2/repository/commons-codec/commons-codec/1.13/commons-codec-1.13.jar:/Users/tanmaypatil/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/Users/tanmaypatil/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar:/Users/tanmaypatil/.m2/repository/com/zaxxer/SparseBitSet/1.2/SparseBitSet-1.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/poi/poi-excelant/4.1.2/poi-excelant-4.1.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/ant/ant/1.8.2/ant-1.8.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/ant/ant-launcher/1.8.2/ant-launcher-1.8.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/poi/poi-ooxml/4.1.2/poi-ooxml-4.1.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar:/Users/tanmaypatil/.m2/repository/com/github/virtuald/curvesapi/1.06/curvesapi-1.06.jar:/Users/tanmaypatil/.m2/repository/org/apache/poi/poi-ooxml-schemas/4.1.2/poi-ooxml-schemas-4.1.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/xmlbeans/xmlbeans/3.1.0/xmlbeans-3.1.0.jar:/Users/tanmaypatil/.m2/repository/org/apache/poi/poi-scratchpad/4.1.2/poi-scratchpad-4.1.2.jar:/Users/tanmaypatil/.m2/repository/org/apache/commons/commons-jexl/2.1.1/commons-jexl-2.1.1.jar:/Users/tanmaypatil/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/Users/tanmaypatil/.m2/repository/org/jxls/jxls/2.10.0/jxls-2.10.0.jar:/Users/tanmaypatil/.m2/repository/org/apache/commons/commons-jexl3/3.1/commons-jexl3-3.1.jar:/Users/tanmaypatil/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/Users/tanmaypatil/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/Users/tanmaypatil/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/Users/tanmaypatil/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar:/Users/tanmaypatil/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/Users/tanmaypatil/.m2/repository/org/jxls/jxls-poi/2.10.0/jxls-poi-2.10.0.jar:/Users/tanmaypatil/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:"/>
+    <property name="surefire.test.class.path" value="c:\Users\u725561\excel-templating\excelgen\target\test-classes;c:\Users\u725561\excel-templating\excelgen\target\classes;C:\Users\u725561\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.3\junit-jupiter-api-5.9.3.jar;C:\Users\u725561\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\u725561\.m2\repository\org\junit\platform\junit-platform-commons\1.9.3\junit-platform-commons-1.9.3.jar;C:\Users\u725561\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\u725561\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.3\junit-jupiter-engine-5.9.3.jar;C:\Users\u725561\.m2\repository\org\junit\platform\junit-platform-engine\1.9.3\junit-platform-engine-1.9.3.jar;C:\Users\u725561\.m2\repository\org\apache\poi\poi\4.1.2\poi-4.1.2.jar;C:\Users\u725561\.m2\repository\commons-codec\commons-codec\1.13\commons-codec-1.13.jar;C:\Users\u725561\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\u725561\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\u725561\.m2\repository\com\zaxxer\SparseBitSet\1.2\SparseBitSet-1.2.jar;C:\Users\u725561\.m2\repository\org\apache\poi\poi-excelant\4.1.2\poi-excelant-4.1.2.jar;C:\Users\u725561\.m2\repository\org\apache\ant\ant\1.8.2\ant-1.8.2.jar;C:\Users\u725561\.m2\repository\org\apache\ant\ant-launcher\1.8.2\ant-launcher-1.8.2.jar;C:\Users\u725561\.m2\repository\org\apache\poi\poi-ooxml\4.1.2\poi-ooxml-4.1.2.jar;C:\Users\u725561\.m2\repository\org\apache\commons\commons-compress\1.19\commons-compress-1.19.jar;C:\Users\u725561\.m2\repository\com\github\virtuald\curvesapi\1.06\curvesapi-1.06.jar;C:\Users\u725561\.m2\repository\org\apache\poi\poi-ooxml-schemas\4.1.2\poi-ooxml-schemas-4.1.2.jar;C:\Users\u725561\.m2\repository\org\apache\xmlbeans\xmlbeans\3.1.0\xmlbeans-3.1.0.jar;C:\Users\u725561\.m2\repository\org\apache\poi\poi-scratchpad\4.1.2\poi-scratchpad-4.1.2.jar;C:\Users\u725561\.m2\repository\org\apache\commons\commons-jexl\2.1.1\commons-jexl-2.1.1.jar;C:\Users\u725561\.m2\repository\commons-logging\commons-logging\1.1.1\commons-logging-1.1.1.jar;C:\Users\u725561\.m2\repository\org\jxls\jxls\2.10.0\jxls-2.10.0.jar;C:\Users\u725561\.m2\repository\org\apache\commons\commons-jexl3\3.1\commons-jexl3-3.1.jar;C:\Users\u725561\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar;C:\Users\u725561\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\u725561\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\u725561\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\u725561\.m2\repository\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;C:\Users\u725561\.m2\repository\org\jxls\jxls-poi\2.10.0\jxls-poi-2.10.0.jar;C:\Users\u725561\.m2\repository\org\slf4j\slf4j-simple\1.7.36\slf4j-simple-1.7.36.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="/Users/tanmaypatil"/>
+    <property name="user.home" value="C:\Users\u725561"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2025-09-16"/>
-    <property name="java.home" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home"/>
-    <property name="file.separator" value="/"/>
-    <property name="basedir" value="/Users/tanmaypatil/excel-templating/excelgen"/>
+    <property name="java.version.date" value="2022-01-18"/>
+    <property name="java.home" value="C:\Users\u725561\openjdk-17.0.2_windows-x64_bin\jdk-17.0.2"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="c:\Users\u725561\excel-templating\excelgen"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/tanmaypatil/excel-templating/excelgen/target/surefire/surefirebooter-20251205215448256_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\u725561\AppData\Local\Temp\surefire16891520223125372589\surefirebooter-20251206151122468_3.jar"/>
+    <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
-    <property name="java.runtime.version" value="25"/>
-    <property name="user.name" value="tanmaypatil"/>
-    <property name="stdout.encoding" value="UTF-8"/>
-    <property name="path.separator" value=":"/>
-    <property name="os.version" value="15.3"/>
+    <property name="java.runtime.version" value="17.0.2+8-86"/>
+    <property name="user.name" value="u725561"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="file.encoding" value="UTF-8"/>
+    <property name="file.encoding" value="Cp1252"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="java.vendor.version" value="Homebrew"/>
-    <property name="localRepository" value="/Users/tanmaypatil/.m2/repository"/>
-    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
-    <property name="java.io.tmpdir" value="/var/folders/6k/3wb67t0d3t7blc8snwpvptp40000gn/T/"/>
-    <property name="java.version" value="25"/>
-    <property name="user.dir" value="/Users/tanmaypatil/excel-templating/excelgen"/>
-    <property name="os.arch" value="aarch64"/>
+    <property name="localRepository" value="C:\Users\u725561\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\u725561\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.2"/>
+    <property name="user.dir" value="c:\Users\u725561\excel-templating\excelgen"/>
+    <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="native.encoding" value="UTF-8"/>
-    <property name="java.library.path" value="/Users/tanmaypatil/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\u725561\openjdk-17.0.2_windows-x64_bin\jdk-17.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;C:\Program Files\IBM\MQ\java\lib;C:\Program Files\IBM\MQ\java\lib64;C:\oracle\12C\product\12.2.0\dbhome_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\u725561\openjdk-17.0.2_windows-x64_bin\jdk-17.0.2\bin;C:\Users\u725561\gradle-8.8-bin\gradle-8.8\bin;C:\Users\u725561\AppData\Local\Programs\Python\Python311;C:\Program Files\IBM\MQ\bin64;C:\Program Files\IBM\MQ\bin;C:\Program Files\IBM\MQ\tools\c\samples\bin64;C:\Program Files\IBM\MQ\tools\c\samples\bin;C:\Users\u725561\AppData\Local\Microsoft\WindowsApps;C:\Users\u725561\openjdk-17.0.2_windows-x64_bin\jdk-17.0.2\bin;C:\Users\u725561\AppData\Local\Programs\Git\cmd;C:\Users\u725561\gradle-8.8-bin\gradle-8.8\bin;C:\Users\u725561\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\u725561\AppData\Local\Programs\Python\Python311;C:\Users\u725561\AppData\Local\GitHubDesktop\bin;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="stderr.encoding" value="UTF-8"/>
-    <property name="java.vendor" value="Homebrew"/>
-    <property name="java.vm.version" value="25"/>
-    <property name="stdin.encoding" value="UTF-8"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
-    <property name="java.class.version" value="69.0"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="17.0.2+8-86"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testExplanation" classname="com.excelgen.VariableEvaluationTest" time="0.015">
+  <testcase name="testExplanation" classname="com.excelgen.VariableEvaluationTest" time="0.002">
     <system-out><![CDATA[
 ╔════════════════════════════════════════════════════════╗
 ║  WHY ${person.name} ISN'T EVALUATED IN OLD TEMPLATE   ║
@@ -98,7 +93,7 @@ Solution:
 ════════════════════════════════════════════════════════════
 ]]></system-out>
   </testcase>
-  <testcase name="testVariablesWithoutAnyCommands" classname="com.excelgen.VariableEvaluationTest" time="0.191">
+  <testcase name="testVariablesWithoutAnyCommands" classname="com.excelgen.VariableEvaluationTest" time="0.088">
     <system-out><![CDATA[
 === Test: Template with ONLY variables (no commands) ===
 Template had: Only ${person.name} expressions
@@ -111,13 +106,10 @@ Result:
 ✓ JXLS 2.x MAY evaluate simple expressions without commands
   But with INVALID old commands present, it won't!
 ]]></system-out>
-    <system-err><![CDATA[[main] INFO org.jxls.template.SimpleExporter - you may change the SPI on file: META-INF/services/org.jxls.util.ServiceFactory
-[main] INFO org.jxls.template.SimpleExporter - you may change the SPI on file: META-INF/services/org.jxls.util.JxlsConfigProvider
-[main] INFO org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
-[main] INFO org.jxls.template.SimpleExporter - you may change the SPI on file: META-INF/services/org.jxls.expression.ExpressionEvaluatorFactory
+    <system-err><![CDATA[[main] INFO org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
 ]]></system-err>
   </testcase>
-  <testcase name="testVariablesWithValidCommand" classname="com.excelgen.VariableEvaluationTest" time="0.022">
+  <testcase name="testVariablesWithValidCommand" classname="com.excelgen.VariableEvaluationTest" time="0.06">
     <failure message="✅ Variables ARE evaluated when valid commands present ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: ✅ Variables ARE evaluated when valid commands present ==> expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -125,8 +117,10 @@ Result:
 	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
 	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:211)
 	at com.excelgen.VariableEvaluationTest.testVariablesWithValidCommand(VariableEvaluationTest.java:72)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
 	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
@@ -154,7 +148,7 @@ Result:
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
@@ -164,7 +158,7 @@ Result:
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
@@ -206,7 +200,7 @@ Result:
     <system-err><![CDATA[[main] INFO org.jxls.util.TransformerFactory - Loading transformer by class org.jxls.transform.poi.PoiTransformer
 ]]></system-err>
   </testcase>
-  <testcase name="testVariablesWithInvalidOldCommand" classname="com.excelgen.VariableEvaluationTest" time="0.021">
+  <testcase name="testVariablesWithInvalidOldCommand" classname="com.excelgen.VariableEvaluationTest" time="0.064">
     <system-out><![CDATA[
 === Test: Template WITH invalid old <jx:if> syntax ===
 Template had: ${person.name} + INVALID <jx:if> old syntax
