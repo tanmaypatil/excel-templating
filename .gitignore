@@ -4,8 +4,6 @@
 # text files
 *.txt
 *.lst
-*.xml
-
 
 # Log file
 *.log
@@ -28,3 +26,25 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Maven build directory
+target/
+
+# Output Excel files (keep only template files in src/main/resources)
+*_output.xlsx
+*_output.xls
+/person_template.xlsx
+/PersonReport_*.xls
+/PersonReport_*.xlsx
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
