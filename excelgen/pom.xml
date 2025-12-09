@@ -3,6 +3,7 @@
   <groupId>com.excelgen</groupId>
   <artifactId>excelgen</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
@@ -70,6 +71,12 @@
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.36</version>
     </dependency>
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>5.0.0</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -97,6 +104,37 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven3-plugin</artifactId>
+        <version>1.10.10</version>
+        <configuration>
+          <container>
+            <containerId>tomcat10x</containerId>
+            <type>embedded</type>
+          </container>
+          <configuration>
+            <properties>
+              <cargo.servlet.port>8080</cargo.servlet.port>
+            </properties>
+          </configuration>
+          <deployables>
+            <deployable>
+              <properties>
+                <context>/excelgen</context>
+              </properties>
+            </deployable>
+          </deployables>
+        </configuration>
       </plugin>
     </plugins>
   </build>
