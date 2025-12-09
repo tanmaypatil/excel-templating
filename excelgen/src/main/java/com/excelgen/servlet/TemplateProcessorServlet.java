@@ -28,6 +28,8 @@ public class TemplateProcessorServlet extends HttpServlet {
             String parentName = request.getParameter("parentName");
             String addressType = request.getParameter("addressType");
             String addressLine = request.getParameter("addressLine");
+            String[] phoneTypes = request.getParameterValues("phoneType[]");
+            String[] phoneNos = request.getParameterValues("phoneNo[]");
             String templateName = request.getParameter("template");
 
             // Debug logging
@@ -35,6 +37,7 @@ public class TemplateProcessorServlet extends HttpServlet {
             System.out.println("  name: " + name);
             System.out.println("  age: " + ageStr);
             System.out.println("  template: " + templateName);
+            System.out.println("  phone count: " + (phoneTypes != null ? phoneTypes.length : 0));
             System.out.println("  Content-Type: " + request.getContentType());
 
             // Validate required parameters
@@ -75,6 +78,25 @@ public class TemplateProcessorServlet extends HttpServlet {
                 address.setType(addressType);
                 address.setAddressLine(addressLine);
                 person.setAddress(address);
+            }
+
+            // Add phone numbers if provided
+            if (phoneTypes != null && phoneNos != null) {
+                int phoneLength = Math.min(phoneTypes.length, phoneNos.length);
+                System.out.println("Processing " + phoneLength + " phone numbers");
+
+                for (int i = 0; i < phoneLength; i++) {
+                    String phoneType = phoneTypes[i];
+                    String phoneNo = phoneNos[i];
+
+                    // Only add if both type and number are provided and not empty
+                    if ((phoneType != null && !phoneType.trim().isEmpty()) ||
+                        (phoneNo != null && !phoneNo.trim().isEmpty())) {
+
+                        System.out.println("  Adding phone " + (i + 1) + ": " + phoneType + " - " + phoneNo);
+                        person.addPhone(phoneType, phoneNo);
+                    }
+                }
             }
 
             // Load template from resources
